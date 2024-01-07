@@ -16,15 +16,17 @@ export class ClienteInteresService {
   //private urlEndPoint: string = 'http://localhost:8080/api/cliente-intereses';
   private urlEndPoint: string = 'https://apires-spring-knn-production.up.railway.app/api/cliente-intereses';
 
+
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
   constructor(private http: HttpClient) { }
 
   // Nuevo método para obtener los intereses con número de usuarios
   getInteresesConUsuarios(): Observable<any[]> {
-    const url = `${this.urlEndPoint}/intereses-usuarios`;
+    const url = `${this.urlEndPoint}/intereses-usuarios`; // Actualizado para usar la variable urlEndPoint
     return this.http.get<any[]>(url);
   }
+
 
   getClientesInteres(): Observable<clienteInteres[]> {
     return this.http.get(this.urlEndPoint).pipe(
