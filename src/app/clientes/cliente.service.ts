@@ -11,7 +11,10 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
-  private urlEndPoint: string = 'http://localhost:8080/api/clientes';
+  //private urlEndPoint: string = 'http://localhost:8080/api/clientes';
+
+  // Cambia la URL para apuntar a tu backend desplegado
+  private urlEndPoint: string = 'https://apires-spring-knn-production.up.railway.app/api/clientes';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 

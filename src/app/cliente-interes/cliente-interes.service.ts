@@ -13,7 +13,8 @@ import { map } from 'rxjs';
 })
 export class ClienteInteresService {
 
-  private urlEndPoint: string = 'http://localhost:8080/api/cliente-intereses';
+  //private urlEndPoint: string = 'http://localhost:8080/api/cliente-intereses';
+  private urlEndPoint: string = 'https://apires-spring-knn-production.up.railway.app/api/cliente-intereses';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -21,7 +22,7 @@ export class ClienteInteresService {
 
   // Nuevo método para obtener los intereses con número de usuarios
   getInteresesConUsuarios(): Observable<any[]> {
-    const url = 'http://localhost:8080/api/intereses-usuarios';
+    const url = `${this.urlEndPoint}/intereses-usuarios`;
     return this.http.get<any[]>(url);
   }
 
@@ -55,7 +56,7 @@ export class ClienteInteresService {
   }
 
   getTendenciasIntereses(inicio: string, fin: string): Observable<tendenciaInteres[]> {
-    const url = `http://localhost:8080/api/cliente-intereses/tendencias?inicio=${inicio}&fin=${fin}`;
+    const url = `${this.urlEndPoint}/tendencias?inicio=${inicio}&fin=${fin}`;
     return this.http.get<tendenciaInteres[]>(url);
   }
 
