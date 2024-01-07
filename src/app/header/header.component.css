@@ -1,0 +1,7 @@
+.navbar {
+  background-color: #add8e6; /* Cambia el color de fondo */
+}
+
+.navbar-collapse {
+  justify-content: center; /* Centra los elementos del navbar */
+}

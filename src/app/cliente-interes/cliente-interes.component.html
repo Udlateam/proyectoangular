@@ -1,0 +1,44 @@
+<!-- clientes.component.html -->
+<!-- Título de la Lista de Clientes -->
+<h1 id="clientesInteresTitulo">Lista de Intereses de Usuarios</h1>
+
+<!-- Botón para agregar un nuevo cliente -->
+<div class="my-2 text-left">
+  <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes-interes/clientes-interes-form']">Crear Usuario</button>
+</div>
+
+<!-- Crear una tabla para mostrar los clientes -->
+<table class="table" id="clientesInteresTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Fecha Creación</th>
+        <th>ClienteId</th>
+        <th>Cliente</th>
+        <th>InteresId</th>
+        <th>interesNombre</th>
+        <th>Ponderacion</th>
+        <th>Acciones</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Usar *ngFor para iterar sobre los clientes y mostrarlos en la tabla -->
+      <tr *ngFor="let clienteInteres of clientesInteres">
+        <td>{{ clienteInteres.id }}</td>
+        <td>{{ clienteInteres.createAt }}</td>
+        <td>{{ clienteInteres.clienteId }}</td>
+        <td>{{ clienteInteres.clienteNombre }} {{ clienteInteres.clienteApellido }}</td>
+        <td>{{ clienteInteres.interesId }}</td>
+        <td>{{ clienteInteres.interesNombre }}</td>
+        <td>{{ clienteInteres.ponderacion }}</td>
+
+        <td>
+          <!-- Botones para editar y eliminar -->
+          <button type="button" name = "editar" [routerLink]="['/clientes-interes/clientes-interes-form', clienteInteres.id]" class="btn btn-warning">Editar</button>
+          <button type="button" name = "eliminar" (click)='delete(clienteInteres)' class="btn btn-danger">Eliminar</button>
+
+        </td>
+      </tr>
+    </tbody>
+</table>

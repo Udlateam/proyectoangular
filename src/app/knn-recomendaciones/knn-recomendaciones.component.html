@@ -1,0 +1,22 @@
+<div class="container knn-container">
+  <h2>Amigos Más Cercanos</h2>
+  <form (ngSubmit)="onSubmit()" class="knn-form">
+    <div class="mb-3">
+      <label for="clienteId" class="form-label">ID del Cliente:</label>
+      <input type="number" class="form-control" id="clienteId" [(ngModel)]="clienteId" name="clienteId" required>
+    </div>
+    <div class="mb-3">
+      <label for="kValue" class="form-label">Valor de K:</label>
+      <input type="number" class="form-control" id="kValue" [(ngModel)]="kValue" name="kValue" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Obtener Recomendaciones</button>
+  </form>
+  <div *ngIf="recomendaciones" class="resultados-container">
+    <h3>Recomendaciones:</h3>
+    <ul class="lista-recomendaciones">
+      <li *ngFor="let recomendacion of recomendaciones">
+        Cliente ID: {{ recomendacion.clienteId }}, Distancia: {{ recomendacion.distancia }}
+      </li>
+    </ul>
+  </div>
+</div>

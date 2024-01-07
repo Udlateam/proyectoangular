@@ -1,0 +1,41 @@
+<!-- cliente-interes-form.component.html -->
+<div class="card bg-light mx-auto" style="max-width: 600px">
+  <div class="card-header text-center">{{ titulo }}</div>
+  <div class="card-body">
+    <form>
+      <div class="form-group row">
+        <label for="clienteId" class="col-form-label col-sm-3 col-md-2">Cliente ID</label>
+        <div class="col-sm-9 col-md-8">
+          <input type="text" class="form-control" [(ngModel)]="clienteInteres.clienteId" name="clienteId"
+            placeholder="Ingresa el ID del cliente" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="interesId" class="col-form-label col-sm-3 col-md-2">Interés ID</label>
+        <div class="col-sm-9 col-md-8">
+          <input type="text" class="form-control" [(ngModel)]="clienteInteres.interesId" name="interesId"
+            placeholder="Ingresa el ID del interés" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="ponderacion" class="col-form-label col-sm-3 col-md-2">Ponderación</label>
+        <div class="col-sm-9 col-md-8">
+          <input type="number" class="form-control" [(ngModel)]="clienteInteres.ponderacion" name="ponderacion"
+            placeholder="Ingresa la ponderación" />
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center mt-4">
+        <div class="col-sm-6 text-center">
+          <button class="btn btn-primary" role="button" (click)="create()"
+            *ngIf="!clienteInteres.id; else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)="update()">Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

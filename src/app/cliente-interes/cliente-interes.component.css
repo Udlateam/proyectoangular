@@ -1,0 +1,25 @@
+/* clientes.component.css */
+
+/* Añadir estilos para tu tabla aquí si lo deseas */
+.table th, .table td {
+  text-align: center;
+}
+
+#clientesInteresTitulo {
+  color: #333;
+  text-align: center;
+}
+
+/* Estilos específicos para la tabla con id="clientesTable" */
+#clientesInteresTable {
+  border: 2px solid #333;  /* Añade un borde sólido */
+  border-collapse: collapse;  /* Asegura que las celdas estén bien unidas */
+}
+
+#clientesInteresTable th {
+  background-color: #f2f2f2;  /* Añade un color de fondo a las celdas del encabezado */
+}
+
+#clientesInteresTable tr:hover {
+  background-color: #ddd;  /* Añade un efecto hover a las filas */
+}

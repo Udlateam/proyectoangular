@@ -1,0 +1,22 @@
+<!-- intereses-usuarios.component.html -->
+<h1 id="interesesUsuariosTitulo">Lista de Intereses de Usuarios y Ponderacion</h1>
+
+<!-- Crear una tabla para mostrar los intereses -->
+<table class="table" id="interesesUsuariosTable">
+  <thead>
+    <tr>
+      <th>ID del Interés</th>
+      <th>Nombre del Interés</th>
+      <th>Ponderación</th>
+      <th>Número de Usuarios</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interes of intereses">
+      <td>{{ interes.interesId }}</td>
+      <td>{{ interes.interesNombre }}</td>
+      <td>{{ interes.ponderacion }}</td>
+      <td>{{ interes.numeroDeUsuarios }}</td>
+    </tr>
+  </tbody>
+</table>

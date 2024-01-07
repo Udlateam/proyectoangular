@@ -1,0 +1,32 @@
+<!-- Contenedor para los date pickers -->
+<div class="date-picker-container">
+  <div>
+    <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+    <input type="date" class="form-control date-picker" id="fechaInicio" [(ngModel)]="inicio">
+  </div>
+  <div>
+    <label for="fechaFin" class="form-label">Fecha de Fin</label>
+    <input type="date" class="form-control date-picker" id="fechaFin" [(ngModel)]="fin">
+  </div>
+</div>
+
+<!-- Botón para cargar tendencias -->
+<button class="btn btn-primary submit-button" (click)="cargarTendencias()">Cargar Tendencias</button>
+
+<!-- Contenedor para la tabla -->
+<div class="table-container" *ngIf="tendencias.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Interés</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tendencia of tendencias">
+        <td>{{ tendencia.interes }}</td>
+        <td>{{ tendencia.cantidad }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
