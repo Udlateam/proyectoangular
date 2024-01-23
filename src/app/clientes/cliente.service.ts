@@ -20,6 +20,11 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
+  buscarClientesPorNombreApellido(nombreApellido: string): Observable<cliente[]> {
+    // Asume que tienes un endpoint en tu backend que busca clientes por nombre o apellido
+    return this.http.get<cliente[]>(`${this.urlEndPoint}/buscar?nombreApellido=${nombreApellido}`);
+  }
+
   getClientes(): Observable<cliente[]> {
     //return of(CLIENTES);
     return this.http.get(this.urlEndPoint).pipe(
