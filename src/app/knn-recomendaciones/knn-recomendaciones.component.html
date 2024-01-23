@@ -1,3 +1,4 @@
+<!-- knn-recomendaciones.component.html -->
 <div class="container knn-container">
   <h2>Amigos Más Cercanos</h2>
 
@@ -32,7 +33,8 @@
     <h3>Recomendaciones:</h3>
     <ul class="lista-recomendaciones">
       <li *ngFor="let recomendacion of recomendaciones">
-        Cliente ID: {{ recomendacion.clienteId }}, Distancia: {{ recomendacion.distancia | number:'1.2-2' }}
+        Cliente: {{ recomendacion.nombre }} {{ recomendacion.apellido }}, Distancia: {{ recomendacion.distancia |
+        number:'1.2-2' }}
       </li>
     </ul>
   </div>
