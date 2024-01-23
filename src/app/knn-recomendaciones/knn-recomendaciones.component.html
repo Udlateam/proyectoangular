@@ -2,15 +2,14 @@
 <div class="container knn-container">
   <h2>Amigos Más Cercanos</h2>
 
-  <!-- Formulario para buscar por nombre o apellido -->
-  <div class="mb-3">
+  <!-- Agrega la clase 'knn-form' a los divs para igualar el ancho con el formulario -->
+  <div class="knn-form mb-3">
     <label for="nombreApellido" class="form-label">Nombre o Apellido del Cliente:</label>
     <input type="text" class="form-control" id="nombreApellido" [(ngModel)]="nombreApellido" name="nombreApellido"
       (input)="buscarCliente()">
   </div>
 
-  <!-- Lista desplegable con resultados de búsqueda -->
-  <div class="mb-3" *ngIf="resultadosBusqueda.length > 0">
+  <div class="knn-form mb-3" *ngIf="resultadosBusqueda.length > 0">
     <label for="clienteSeleccionado" class="form-label">Seleccione un Cliente:</label>
     <select class="form-select" [(ngModel)]="clienteSeleccionado" name="clienteSeleccionado">
       <option *ngFor="let cliente of resultadosBusqueda" [ngValue]="cliente">
