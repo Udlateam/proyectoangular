@@ -4,13 +4,13 @@
 
   <!-- Agrega la clase 'knn-form' a los divs para igualar el ancho con el formulario -->
   <div class="knn-form mb-3">
-    <label for="nombreApellido" class="form-label">Nombre o Apellido del Cliente:</label>
+    <label for="nombreApellido" class="form-label">Nombre o Apellido del Usuario:</label>
     <input type="text" class="form-control" id="nombreApellido" [(ngModel)]="nombreApellido" name="nombreApellido"
       (input)="buscarCliente()">
   </div>
 
   <div class="knn-form mb-3" *ngIf="resultadosBusqueda.length > 0">
-    <label for="clienteSeleccionado" class="form-label">Seleccione un Cliente:</label>
+    <label for="clienteSeleccionado" class="form-label">Seleccione un Usuario:</label>
     <select class="form-select" [(ngModel)]="clienteSeleccionado" name="clienteSeleccionado">
       <option *ngFor="let cliente of resultadosBusqueda" [ngValue]="cliente">
         {{ cliente.nombre }} {{ cliente.apellido }}
@@ -21,20 +21,23 @@
   <!-- Formulario para enviar la solicitud de KNN -->
   <form (ngSubmit)="onSubmit()" class="knn-form">
     <div class="mb-3">
-      <label for="kValue" class="form-label">Valor de K:</label>
+      <label for="kValue" class="form-label">Cantidad de amigos cercanos:</label>
       <input type="number" class="form-control" id="kValue" [(ngModel)]="kValue" name="kValue" required>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!clienteSeleccionado">Obtener Recomendaciones</button>
   </form>
 
-  <!-- Resultados de las recomendaciones KNN -->
-  <div *ngIf="recomendaciones" class="resultados-container">
-    <h3>Recomendaciones:</h3>
-    <ul class="lista-recomendaciones">
-      <li *ngFor="let recomendacion of recomendaciones">
-        Cliente: {{ recomendacion.nombre }} {{ recomendacion.apellido }}, Distancia: {{ recomendacion.distancia |
-        number:'1.2-2' }}
-      </li>
-    </ul>
-  </div>
+<!-- Resultados de las recomendaciones KNN -->
+<div *ngIf="recomendaciones" class="resultados-container">
+  <h3>Recomendaciones:</h3>
+  <ul class="lista-recomendaciones">
+    <li *ngFor="let recomendacion of recomendaciones">
+      Usuario: {{ recomendacion.nombre }} {{ recomendacion.apellido }}, Distancia: {{ recomendacion.distancia | number:'1.2-2' }}
+    </li>
+    <small class="form-text text-muted">
+      El valor de la distancia muestra qué tan similares son los usuarios: un valor menor, cercano a cero, indica una mayor similitud.
+    </small>
+  </ul>
+</div>
+
 </div>
